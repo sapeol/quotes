@@ -1,17 +1,17 @@
 {
   "name": "quotes",
   "version": "1.0.50",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts",
-    "pages:dev": "npx wrangler pages dev --compatibility-date=2024-01-01",
-    "deploy": "npx wrangler pages deploy ."
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
-    "elysia": "latest"
+    "hono": "^4.6.0"
   },
   "devDependencies": {
-    "bun-types": "latest"
-  },
-  "module": "src/index.js"
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "wrangler": "^4.0.0"
+  }
 }

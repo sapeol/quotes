@@ -1,21 +1,20 @@
-import { Elysia } from "elysia";
+import { Hono } from "hono";
+import quotes from "../quotes.json";
 
-const quotes = JSON.parse(require("fs").readFileSync("src/quotes.json", "utf-8")) as Array<{
+type Quote = {
   id: string;
   author: string;
   en: string;
-}>;
-
-const getRandomQuote = () => {
-  const index = Math.floor(Math.random() * quotes.length);
-  return quotes[index];
 };
 
-const app = new Elysia()
-  .get("/", () => "Hello Elysia")
-  .get("/random", () => getRandomQuote())
-  .listen(3000);
+const app = new Hono();
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+app.get("/", (c) => c.text("Hello Hono"));
+
+app.get("/random", (c) => {
+  const index = Math.floor(Math.random() * quotes.length);
+  const quote = quotes[index] as Quote;
+  return c.json(quote);
+});
+
+export default app;
