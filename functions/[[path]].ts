@@ -13,9 +13,6 @@ const getRandomQuote = () => {
 
 const app = new Elysia()
   .get("/", () => "Hello Elysia")
-  .get("/random", () => getRandomQuote())
-  .listen(3000);
+  .get("/random", () => getRandomQuote());
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+export default app;

@@ -3,7 +3,9 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "pages:dev": "npx wrangler pages dev --compatibility-date=2024-01-01",
+    "deploy": "npx wrangler pages deploy ."
   },
   "dependencies": {
     "elysia": "latest"
