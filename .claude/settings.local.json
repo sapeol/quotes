@@ -13,7 +13,12 @@
       "Bash(git push)",
       "Bash(bun install:*)",
       "Bash(~/.bun/bin/bun install:*)",
-      "Bash(npx wrangler deploy:*)"
+      "Bash(npx wrangler deploy:*)",
+      "Bash(for i in {1..3})",
+      "Bash(do curl -s -o /dev/null -w \"Run $i: %{time_total}s\\\\n\" https://quotes.sudeepzmr.workers.dev/random --max-time 10)",
+      "Bash(done)",
+      "Bash(do:*)",
+      "Bash(jq:*)"
     ]
   }
 }

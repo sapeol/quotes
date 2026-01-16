@@ -17,4 +17,24 @@ app.get("/random", (c) => {
   return c.json(quote);
 });
 
+app.get("/about", (c) => {
+  return c.json({
+    name: "Quotes API",
+    version: "1.0.0",
+    description: "A simple random quotes API",
+    endpoints: {
+      root: "/",
+      random: "/random",
+      about: "/about"
+    },
+    stats: {
+      totalQuotes: quotes.length
+    },
+    links: {
+      github: "https://github.com/sapeol/quotes",
+      docs: "https://github.com/sapeol/quotes#readme"
+    }
+  });
+});
+
 export default app;
